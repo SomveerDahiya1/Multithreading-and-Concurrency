@@ -4,7 +4,7 @@ public class ThreadSleep {
             System.out.print("- ");
             Thread.sleep(300);
         }
-        char [] welcome = {'W','e','l','c','o','m','e'};
+        char[] welcome = "Welcome".toCharArray();
         for(int i=0;i<welcome.length;i++){
             System.out.print(welcome[i]);
             Thread.sleep(200);

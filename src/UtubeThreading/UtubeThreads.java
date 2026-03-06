@@ -1,4 +1,6 @@
-public class NetflixThreads {
+package UtubeThreading;
+
+public class UtubeThreads {
     public static void intro() throws InterruptedException {
         for(int i=1;i<=5;i++){
             System.out.print("- ");
@@ -22,7 +24,7 @@ public class NetflixThreads {
         }
         for(int i=1;i<=3;i++){
             System.out.print(".");
-            Thread.sleep(7000);
+            Thread.sleep(10000);
         }
     }public static void downloadingVideo() throws InterruptedException {
         char  downloadText[] = "Downloading Video".toCharArray();
@@ -32,7 +34,7 @@ public class NetflixThreads {
         }
         for(int i=1;i<=5;i++){
             System.out.print(".");
-            Thread.sleep(10000);
+            Thread.sleep(5000);
         }
         System.out.println("Download Successfully");
     }
@@ -62,10 +64,19 @@ public class NetflixThreads {
             }
         });
 
-        thread1.start();
+        Thread thread4 = new Thread(()-> {
+            try {
+                playingVideo();
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        });
+
+        thread1.start();//Application Into or Startup
         thread1.join();
-        thread2.start();
-        thread3.start();
+        thread2.start(); //Video playing
+        thread3.start();//Downloading Video
+
 
     }
 }
